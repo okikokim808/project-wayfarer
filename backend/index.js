@@ -16,5 +16,5 @@ app.use(parser.json())
 app.use('/users', userController)
 app.use('/api/posts', postController)
 
-
+module.exports.UserPost = require('./UserPost')
 app.listen(3001, () => console.log('Listening on port 3001 :)'))
