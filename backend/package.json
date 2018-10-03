@@ -1,6 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "reactproject",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,26 +15,13 @@
   "bugs": {
     "url": "https://github.com/okikokim808/project-wayfarer/issues"
   },
-  "homepage": "https://github.com/okikokim808/project-wayfarer#readme"
-=======
-  "name": "back-end",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "homepage": "https://github.com/okikokim808/project-wayfarer#readme",
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "jwt-simple": "^0.5.5",
-    "mongoose": "^5.0.10",
-    "parser": "^0.1.4",
+    "mongoose": "^5.3.1",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
->>>>>>> 82c7831b5cee13a238ff9de851e4d9acb342a23f
+  }
 }
