@@ -1,0 +1,13 @@
+.aboutSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutParagraphs {
+    display: flex;
+}
+
+.singleAbout {
+    margin: 0 1em;
+}
