@@ -14,7 +14,7 @@ app.use(cors())
 app.use(parser.json())
 
 app.use('/users', userController)
-app.use('/api/posts', postController)
+app.use('/posts', postController)
 
 module.exports.UserPost = require('./models/UserPost')
 app.listen(3001, () => console.log('Listening on port 3001 :)'))
