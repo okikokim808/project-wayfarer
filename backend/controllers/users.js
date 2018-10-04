@@ -93,4 +93,9 @@ router.post('/login', (req, res) => {
 
 
 
+// $('#logout').on ('click', function () {
+//   window.location.pathname = '/'
+// })
+
+
 module.exports = router
