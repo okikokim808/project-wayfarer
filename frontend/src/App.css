@@ -11,3 +11,56 @@
 .singleAbout {
     margin: 0 1em;
 }
+
+
+.splashHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3em;
+    padding-bottom: 2px;
+    border-bottom: 0.1px solid black;
+    
+}
+
+.splashNav {
+    display: flex;
+    margin-right: 1em;
+    align-items: center;
+    margin-bottom: 0;
+    height: 100%;
+
+
+}
+
+li {
+    list-style-type: none;
+    margin-left: 2em;
+    
+}
+
+.splashTitle {
+    margin-left: 1em;
+}
+
+.navLink {
+    color: grey;
+}
+
+.navLink:hover {
+    color: #2fb32f;
+   
+}
+.navLogo {
+    width: 50px;
+    height: 100%;
+}
+
+.navLogo {
+    margin-left: 0.2em
+    
+}
+
+.imageAndLogo {
+    display: flex;
+    justify-content: flex-start;
+}
