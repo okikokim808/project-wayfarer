@@ -64,3 +64,13 @@ li {
     display: flex;
     justify-content: flex-start;
 }
+
+.searchbar {
+    margin-right: 3em;
+    margin-top: 0.5em;
+    
+}
+
+input {
+    width: 20em;
+}

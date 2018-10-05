@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
 import './App.css'
 import hetchy from './images/hetchy.jpg'
+import SigninForm from './SigninForm'
+import SignupForm from './SignupForm'
 
 class Splashnav extends Component {
+    
     render() {
+    let taco;
+    if (!this.props.isSignedIn){
+        taco = 
+            <ul>
+                <li><a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
+            </ul>
+    }else{
+        taco =
+            <ul>
+                <li><a onClick={this.props.handleLogOut}>Log Out</a></li>
+            </ul>
+    }
         return (
-            <header class='splashHeader'>
-                <div class='imageAndLogo'>
-                <img class='navLogo' src= {hetchy} />
-                <h2 class='splashTitle'>Wayfarer</h2>
+            <header className='splashHeader'>
+                <div className='imageAndLogo'>
+                <img className='navLogo' src= {hetchy} />
+                <h2 className='splashTitle'>Wayfarer</h2>
                 </div>
                 <nav>
-                    <ul class='splashNav'>
-                        <li><a class='navLink' href='#'>Sign In</a></li>
-                        <li><a class='navLink' href='#'>Sign Up</a></li>
-                    </ul>
+                    {taco}
+                    <SigninForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignIn={this.props.handleSignIn} 
+                    handleInput={this.props.handleInput}/>
+                    <SignupForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignUp={this.props.handleSignUp} 
+                    handleInput={this.props.handleInput}/>
                 </nav>
             </header>
             
