@@ -51,6 +51,17 @@ router.post('/signup', (req, res) => {
     })
 });
 
+
+router.get('/:id', (req, res) => {
+  let id = req.params.id
+  console.log("id: "+id)
+  User.findOne({ _id: id })
+    .then(user => res.send(user))
+    .catch(function(err) { 
+      res.json(err)
+    })
+  });
+
 router.post('/login', (req, res) => {
     User.find({email: req.body.email})
       .select('+password')
