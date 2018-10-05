@@ -6,7 +6,7 @@ const Post = mongoose.model('Post')
 
 router.post('/create', (req, res) => {
     const post = new Post({
-    author: req.body.author,
+    author: req.body.username,
     title: req.body.title,
     content: req.body.content,
     // _id: req.body._id

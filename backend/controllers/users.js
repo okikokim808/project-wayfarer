@@ -10,13 +10,13 @@ const mongoose = require('../models/User')
 const User = mongoose.model('User')
 
 router.post('/signup', (req, res) => {
-    User.find({email: req.body.email})
+    User.find({username: req.body.username})
     .select('+password')
     .exec()
     .then( user => {
       if (user.length >= 1) {
         return res.status(409).json({
-          message: "email already exists"
+          message: "user already exists"
         })
       } else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
