@@ -1,5 +1,5 @@
 const mongoose = require('mongoose'),
-Schema = mongoose.Schema;
+    Schema = mongoose.Schema;
 
 
 const CitySchema = new Schema ({
@@ -10,7 +10,5 @@ const CitySchema = new Schema ({
 
 
 
-const UserPost = mongoose.model('UserPost', UserPostSchema);
-
-
-module.exports = UserPost;
+const City = mongoose.model('City', CitySchema);
+module.exports = City;
