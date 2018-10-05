@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import About from './About';
-import Carousel from './Carousel';
+import { Switch, Route } from 'react-router-dom';
+import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
@@ -66,7 +66,6 @@ class App extends Component {
             this.setState({
               isLoggedIn: true
             })
-
         })
         .catch(err => console.log(err))
   }
@@ -89,11 +88,11 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
-        
-        <Carousel />
-        <About />
-        <Citylistcontainer />
-        <Profile />
+        <Switch>
+          <Route exact path='/' component={ SplashPage }/>
+          <Route path='/Cities' component={ Citylistcontainer }/>
+          <Route path='/Profile' component={ Profile }/>
+        </Switch>
       </div>
     );
   }
