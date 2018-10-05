@@ -24,6 +24,7 @@ router.post('/signup', (req, res) => {
             res.status(500).json({error: err})
           } else {
             const userToCreate = new User({
+              username: req.body.username,
               email: req.body.email,
               password: hash,
             });
@@ -63,13 +64,13 @@ router.get('/:id', (req, res) => {
   });
 
 router.post('/login', (req, res) => {
-    User.find({email: req.body.email})
+    User.find({username: req.body.username})
       .select('+password')
       .exec()
       .then( users => {
         if(users.length < 1) {
           return res.status(401).json({
-            message: "Email/Password incorrect"
+            message: "Username/Password incorrect"
           })
         }
         bcrypt.compare(req.body.password, users[0].password, (err, match) => {
@@ -77,6 +78,7 @@ router.post('/login', (req, res) => {
           if(match){
             const token = jwt.sign(
               {
+                username: users[0].username,
                 email: users[0].email,
                 _id: users[0]._id
               }, 
@@ -92,7 +94,7 @@ router.post('/login', (req, res) => {
               }
             )
           } else {
-            res.status(401).json({message: "Email/Password incorrect"})
+            res.status(401).json({message: "Username/Password incorrect"})
           }
         })
   
