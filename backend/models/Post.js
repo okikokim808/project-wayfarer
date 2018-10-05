@@ -15,7 +15,7 @@ const PostSchema = new Schema({
         type: String,
         required: true
     },
-    _id : String,
+    // _id : String,
 })
 
 const Post = mongoose.model('Post', PostSchema)

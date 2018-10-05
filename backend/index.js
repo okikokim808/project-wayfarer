@@ -2,12 +2,9 @@ const passport = require('./config/passport')()
 const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
-<<<<<<< HEAD
 const bodyParser = require('body-parser')
 
-=======
 const db = require('./models')
->>>>>>> b1cc95d014f202f60555114b66053dbbd2df01ad
 
 const userController = require('./controllers/users.js')
 const postController = require('./controllers/posts.js')
