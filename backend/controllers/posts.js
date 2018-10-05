@@ -34,17 +34,20 @@ router.get('/all', (req, res) => {
 
 router.get('/all/:id' , (req, res) => {
     let postId = req.params.id;
-    Post.findById( postId , (err, foundPost) => {
+    Post.findOne( {_id: postId} , (err, foundPost) => {
         if(err) { return console.log(err) };
         res.json(foundPost);
     });
 }); 
 
-router.put('/update/:id', (req, res) => {
+router.put('/all/:id', (req, res) => {
     let postId = req.params.id;
-    Post.findById( postId, (err, updatePost) => {
+    let updateBody = req.body;
+    Post.findOneAndUpdate( {_id: postId},
+        updateBody, {new: true},
+        (err, updateBody) => {
         if(err){console.log(err)};
-        res.json({updatePost});
+        res.json({updateBody});
     });
 });
 
