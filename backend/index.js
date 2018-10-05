@@ -2,7 +2,7 @@ const passport = require('./config/passport')()
 const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
-
+const db = require('./models')
 
 const userController = require('./controllers/users.js')
 const postController = require('./controllers/posts.js')
@@ -16,5 +16,24 @@ app.use(parser.json())
 app.use('/users', userController)
 app.use('/posts', postController)
 
-module.exports.UserPost = require('./models/UserPost')
+app.get('/api/users', function profilePage(req, res) {
+    db.User.find({}, (err, allUsers) => {
+        if(err){console.log(err);}
+        res.json(allUsers)
+    })
+})
+
+app.get('/api/posts', function postPage(req, res) {
+    db.Post.find({}, (err, allPosts) => {
+        if(err) {
+            console.log(err)
+        }
+        res.json(allPosts)
+    })
+})
+
+
+
+
+
 app.listen(3001, () => console.log('Listening on port 3001 :)'))
