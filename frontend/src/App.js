@@ -14,6 +14,7 @@ class App extends Component {
     super()
 
     this.state = {
+      username: '',
       email: '',
       password: '',
       isLoggedIn: false
@@ -43,6 +44,7 @@ class App extends Component {
   handleSignUp (e) {
     e.preventDefault()
       axios.post('http://localhost:3001/users/signup', {
+          username: this.state.username,
           email: this.state.email,
           password: this.state.password
         })
@@ -58,7 +60,7 @@ class App extends Component {
   handleSignIn (e) {
     e.preventDefault()
     axios.post('http://localhost:3001/users/login', {
-        email: this.state.email,
+        username: this.state.username,
         password: this.state.password
       })
         .then(response => {
@@ -72,6 +74,7 @@ class App extends Component {
 
   handleLogOut() {
     this.setState({
+      username: '',
       email: '',
       password: '',
       isLoggedIn: false

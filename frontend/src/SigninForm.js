@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css'
-
+import { Link } from 'react-router-dom';
 class SigninForm extends Component {
     render() {
         return (
@@ -14,10 +14,11 @@ class SigninForm extends Component {
                         </button>
                     </div>
                     <div className="modal-body mx-3">
+
                         <div className="md-form mb-5">
-                            <i className="fa fa-envelope prefix grey-text"></i>
-                            <input type="email" name="email" id="defaultForm-email" className="form-control validate" onChange={this.props.handleInput}/>
-                            <label data-error="wrong" data-success="right" htmlFor="defaultForm-email">Your email</label>
+                            <i className="fa fa-user prefix grey-text"></i>
+                            <input type="text" name="username" id="defaultForm-name" className="form-control validate" onChange={this.props.handleInput} />
+                            <label data-error="wrong" data-success="right" htmlFor="defaultForm-name">Your name</label>
                         </div>
 
                         <div className="md-form mb-4">
@@ -27,7 +28,7 @@ class SigninForm extends Component {
                         </div>
                     </div>
                     <div className="modal-footer d-flex justify-content-center">
-                        <button className="btn btn-default" onClick={this.props.handleSignIn}>Login</button>
+                        <Link to="/Profile" onClick={this.props.handleSignIn}>Sign In</Link>
                     </div>
                 </div>
             </div>

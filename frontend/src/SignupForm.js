@@ -14,6 +14,13 @@ class SignupForm extends Component {
                         </button>
                     </div>
                     <div className="modal-body mx-3">
+
+                        <div className="md-form mb-5">
+                            <i className="fa fa-user prefix grey-text"></i>
+                            <input type="text" name="username" id="orangeForm-name" className="form-control validate" onChange={this.props.handleInput}/>
+                            <label data-error="wrong" data-success="right" htmlFor="orangeForm-name">Your name</label>
+                        </div>
+
                         <div className="md-form mb-5">
                             <i className="fa fa-envelope prefix grey-text"></i>
                             <input type="email" name="email" id="orangeForm-email" className="form-control validate" onChange={this.props.handleInput}/>
