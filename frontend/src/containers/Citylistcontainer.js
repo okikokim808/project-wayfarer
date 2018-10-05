@@ -9,10 +9,9 @@ class Citylistcontainer extends Component {
         }
     }
     render() {
-        console.log(this.state.cities)
         return(
-            <div>
-                <h1>hellooo</h1>
+            <div className="cityList">
+                <h1>City List container</h1>
             </div>
         )
     }
