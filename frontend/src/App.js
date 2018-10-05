@@ -66,6 +66,7 @@ class App extends Component {
             this.setState({
               isLoggedIn: true
             })
+
         })
         .catch(err => console.log(err))
   }
@@ -88,6 +89,7 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
+        
         <Carousel />
         <About />
         <Citylistcontainer />
