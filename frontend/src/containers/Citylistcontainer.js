@@ -12,7 +12,7 @@ class Citylistcontainer extends Component {
         console.log(this.state.cities)
         return(
             <div>
-                <h1>hellooo</h1>
+                <h1>{this.state.cities.name}</h1>
             </div>
         )
     }

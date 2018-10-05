@@ -2,6 +2,7 @@ const passport = require('./config/passport')()
 const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 
 
 const userController = require('./controllers/users.js')
@@ -15,6 +16,8 @@ app.use(parser.json())
 
 app.use('/users', userController)
 app.use('/posts', postController)
+app.use(bodyParser.urlencoded({ extended: false }));
+
 
 module.exports.UserPost = require('./models/UserPost')
 app.listen(3001, () => console.log('Listening on port 3001 :)'))

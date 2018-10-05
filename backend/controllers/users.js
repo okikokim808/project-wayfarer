@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken')
 const passport = require('../config/passport')
 const config = require('../config/config')
 const bcrypt = require('bcrypt'); 
+const bodyParser = require('body-parser')
 
 const mongoose = require('../models/User')
 const User = mongoose.model('User')
@@ -107,9 +108,6 @@ router.get('/all/:id' , (req, res) => {
 }); 
 
 
-// $('#logout').on ('click', function () {
-//   window.location.pathname = '/'
-// })
 
 
 module.exports = router
