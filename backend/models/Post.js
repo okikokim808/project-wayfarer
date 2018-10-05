@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('../db/connection')
     User = require ('./User')
     Schema = mongoose.Schema
 
@@ -14,7 +14,8 @@ const PostSchema = new Schema({
     content: {
         type: String,
         required: true
-    }
+    },
+    // _id : String,
 })
 
 const Post = mongoose.model('Post', PostSchema)

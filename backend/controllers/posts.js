@@ -9,8 +9,9 @@ router.post('/create', (req, res) => {
     author: req.body.author,
     title: req.body.title,
     content: req.body.content,
+    // _id: req.body._id
     });
-
+    console.log(post)
     post  
         .save()
         .then (result => {
