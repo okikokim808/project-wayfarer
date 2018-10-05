@@ -9,10 +9,14 @@ class Citylistcontainer extends Component {
         }
     }
     render() {
-        console.log(this.state.cities)
         return(
+<<<<<<< HEAD
             <div>
                 <h1>{this.state.cities.name}</h1>
+=======
+            <div className="cityList">
+                <h1>City List container</h1>
+>>>>>>> 47904632921870e902e8d8e4537880296b4081e9
             </div>
         )
     }

@@ -7,17 +7,17 @@ import SignupForm from './SignupForm'
 class Splashnav extends Component {
     
     render() {
-    let taco;
+    let authLinks;
     if (!this.props.isSignedIn){
-        taco = 
-            <ul>
+        authLinks = 
+            <ul className="navLinks">
                 <li><a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
             </ul>
     }else{
-        taco =
-            <ul>
-                <li><a onClick={this.props.handleLogOut}>Log Out</a></li>
+        authLinks =
+            <ul className="navLinks">
+                <li><a href="#" onClick={this.props.handleLogOut}>Log Out</a></li>
             </ul>
     }
         return (
@@ -27,7 +27,7 @@ class Splashnav extends Component {
                 <h2 className='splashTitle'>Wayfarer</h2>
                 </div>
                 <nav>
-                    {taco}
+                    {authLinks}
                     <SigninForm 
                     isSignedIn={this.props.isSignedIn} 
                     handleSignIn={this.props.handleSignIn} 
