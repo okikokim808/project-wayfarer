@@ -5,18 +5,32 @@ const mongoose = require('../models/Post')
 const Post = mongoose.model('Post')
 
 router.post('/create', (req, res) => {
-    Post.create( req.body, (err, newPost) => {
-        if(err){console.log(err)};
-        res.json(newPost)
-    })
-});
+    const post = new Post({
+    author: req.body.author,
+    title: req.body.title,
+    content: req.body.content,
+    });
+
+    post  
+        .save()
+        .then (result => {
+        res.json({message:'post created',
+            post: result
+            })
+        })
+        .catch ( err => {
+        console.log(err);
+        res.status(500).json({err})
+        })
+})
+
 
 router.get('/all', (req, res) => {
     Post.find( req.body.author, (err, userPosts) => {
         if(err){console.log(err)};
         res.json({userPosts});
-        });
     });
+});
 
 router.get('/all/:id' , (req, res) => {
     let postId = req.params.id;
@@ -25,5 +39,13 @@ router.get('/all/:id' , (req, res) => {
         res.json(foundPost);
     });
 }); 
+
+router.put('/update/:id', (req, res) => {
+    let postId = req.params.id;
+    Post.findById( postId, (err, updatePost) => {
+        if(err){console.log(err)};
+        res.json({updatePost});
+    });
+});
 
 module.exports = router
