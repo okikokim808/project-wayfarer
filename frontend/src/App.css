@@ -74,3 +74,16 @@ li {
 input {
     width: 20em;
 }
+
+.userProfileImage {
+    width: 100px;
+    height: 100px;
+    margin-right: 4em;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
+    
+}
+

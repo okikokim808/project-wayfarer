@@ -6,6 +6,7 @@ import Splashnav from './Splashnav'
 import Citylistcontainer from './containers/Citylistcontainer'
 import './App.css';
 import axios from 'axios'
+import Profile from './Profile'
 
 import './App.css'
 class App extends Component {
@@ -90,6 +91,7 @@ class App extends Component {
         <Carousel />
         <About />
         <Citylistcontainer />
+        <Profile />
       </div>
     );
   }
