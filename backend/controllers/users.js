@@ -91,6 +91,20 @@ router.post('/login', (req, res) => {
       })
 })
 
+router.get('/all', (req, res) => {
+  User.find( {}, (err, usersAll) => {
+      if(err){console.log(err)};
+      res.json({usersAll});
+  });
+});
+
+router.get('/all/:id' , (req, res) => {
+  let userId = req.params.id;
+  User.findOne( {_id: userId} , (err, foundUser) => {
+      if(err) { return console.log(err) };
+      res.json(foundUser);
+  });
+}); 
 
 
 // $('#logout').on ('click', function () {
