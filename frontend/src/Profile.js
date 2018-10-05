@@ -6,15 +6,15 @@ class Profile extends Component {
     render() {
         return (
             <div>
-            <div class='profile'>
-                <img class='userProfileImage' src={hetchy} />
-                <div class='userInfo'>
+            <div className='profile'>
+                <img className='userProfileImage' src={hetchy} />
+                <div className='userInfo'>
                 <h2>Username:</h2>
                 <h3>Current City:</h3>
                 <h4>Joined: </h4>
                 </div>
             </div>
-            <div class="userPosts">
+            <div className="userPosts">
             <h2>Posts: </h2>
             </div>
             </div>

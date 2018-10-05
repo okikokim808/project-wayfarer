@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import About from './About';
-import Carousel from './Carousel';
+import { Switch, Route } from 'react-router-dom';
+import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
@@ -14,6 +14,7 @@ class App extends Component {
     super()
 
     this.state = {
+      username: '',
       email: '',
       password: '',
       isLoggedIn: false
@@ -43,6 +44,7 @@ class App extends Component {
   handleSignUp (e) {
     e.preventDefault()
       axios.post('http://localhost:3001/users/signup', {
+          username: this.state.username,
           email: this.state.email,
           password: this.state.password
         })
@@ -58,7 +60,7 @@ class App extends Component {
   handleSignIn (e) {
     e.preventDefault()
     axios.post('http://localhost:3001/users/login', {
-        email: this.state.email,
+        username: this.state.username,
         password: this.state.password
       })
         .then(response => {
@@ -66,13 +68,13 @@ class App extends Component {
             this.setState({
               isLoggedIn: true
             })
-
         })
         .catch(err => console.log(err))
   }
 
   handleLogOut() {
     this.setState({
+      username: '',
       email: '',
       password: '',
       isLoggedIn: false
@@ -89,11 +91,11 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
-        
-        <Carousel />
-        <About />
-        <Citylistcontainer />
-        <Profile />
+        <Switch>
+          <Route exact path='/' component={ SplashPage }/>
+          <Route path='/Cities' component={ Citylistcontainer }/>
+          <Route path='/Profile' component={ Profile }/>
+        </Switch>
       </div>
     );
   }
