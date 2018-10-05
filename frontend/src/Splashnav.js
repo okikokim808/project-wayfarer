@@ -11,8 +11,8 @@ class Splashnav extends Component {
     if (!this.props.isSignedIn){
         taco = 
             <ul>
-                <li><a href="#"data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
-                <li><a href="#"data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
             </ul>
     }else{
         taco =

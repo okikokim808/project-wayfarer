@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import About from './About';
 import Carousel from './Carousel';
 import Splashnav from './Splashnav'
+// import Loggedinnav from './Loggedinnav'
+import Citylistcontainer from './containers/Citylistcontainer'
 import './App.css';
 import axios from 'axios'
 
@@ -87,6 +89,7 @@ class App extends Component {
         handleLogOut={this.handleLogOut} />
         <Carousel />
         <About />
+        <Citylistcontainer />
       </div>
     );
   }
