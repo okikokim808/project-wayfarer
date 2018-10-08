@@ -12,7 +12,8 @@ import axios from 'axios'
 import Profile from './Profile'
 
 import './App.css'
-import About from './About';
+import Footer from './Footer'
+
 class App extends Component {
   constructor () {
     super()
@@ -32,11 +33,13 @@ class App extends Component {
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
+        redirect : <Redirect to="/Profile" />
       })
     } else {
       this.setState({
-        isLoggedIn: false
+        isLoggedIn: false,
+        redirect : <Redirect to="/"/>
       })
     }
   }
@@ -101,10 +104,11 @@ class App extends Component {
         <SplashPage />
         <Switch>
           <Route path='/Cities' component={ Citylistcontainer }/>
-          <Route path='/Profile' component={ Profile }/>
-          <Route exact path='/' component={ PostModal }/>
 
-        </Switch>
+          {/* <Route exact path='/' component={ Postmodal }/>  */}
+          <Route exact path='/' component={ SplashPage }/>
+       </Switch>
+       <Footer />
       </div>
     );
   }
