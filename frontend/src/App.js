@@ -100,7 +100,7 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
-        {/* <SplashPage /> */}
+        {this.state.redirect}
         <Switch>
           <Route path='/Cities' component={ Citylistcontainer }/>
           <Route path='/Profile' component={ Profile }/>
