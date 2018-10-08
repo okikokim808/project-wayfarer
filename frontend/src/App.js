@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
-import Postmodal from './Postmodal'
+import PostModal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
-import './App.css'
 import Footer from './Footer'
 
+import './App.css'
 class App extends Component {
   constructor () {
     super()
@@ -19,7 +20,7 @@ class App extends Component {
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
@@ -27,17 +28,16 @@ class App extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
-  
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true,
-        // redirect : <Redirect to="/Profile" />
+        redirect : <Redirect to="/Profile"></Redirect>
       })
     } else {
       this.setState({
         isLoggedIn: false,
-        // redirect : <Redirect to="/"/>
+        redirect : <Redirect to="/"></Redirect>
       })
     }
   }
@@ -56,7 +56,7 @@ class App extends Component {
           .then(response => {
               localStorage.token = response.data.token
               this.setState({
-                  isLoggedIn: true
+                  isLoggedIn: true,
               })
           })
           .catch(err => console.log(err))
@@ -83,12 +83,14 @@ class App extends Component {
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     })
+
     localStorage.clear()
   }
-  
+
   render() {
+
     return (
       <div className="App">
 
@@ -97,17 +99,14 @@ class App extends Component {
         handleSignIn = {this.handleSignIn} 
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
-        handleLogOut={this.handleLogOut}
-        // handleRedirect = {this.state.redirect} 
-        />
-        {/* {this.state.redirect} */}
+        handleLogOut={this.handleLogOut} />
+        <SplashPage />
         <Switch>
-          <Route path='/Profile' component={Profile}/>
           <Route path='/Cities' component={ Citylistcontainer }/>
-          {/* <Route exact path='/' component={ Postmodal }/>  */}
+          <Route path='/Profile' component={ Profile }/>
           <Route exact path='/' component={ SplashPage }/>
-       </Switch>
-       <Footer />
+        </Switch>
+        <Footer />
       </div>
     );
   }
