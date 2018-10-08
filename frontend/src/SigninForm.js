@@ -29,7 +29,8 @@ class SigninForm extends Component {
                         </div>
                     </div>
                     <div className="modal-footer d-flex justify-content-center">
-                        <Link onClick={this.props.handleSignIn} to="/profile" data-dismiss="modal" aria-label="Close">Sign In</Link>
+                    <Link to="/Profile"><button onClick={this.props.handleSignIn} data-dismiss="modal" aria-label="Close">Sign In</button></Link>
+                        {/* <Link onClick={this.props.handleSignIn} to="/profile" data-dismiss="modal" aria-label="Close">Sign In</Link> */}
                     </div>
                 </div>
             </div>
