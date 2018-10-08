@@ -103,7 +103,9 @@ input {
     justify-content: center;
     height: 74.5vh;
 }
-
+.cityList{
+    height: auto;
+}
 .footer{
     display: flex;
     align-items: center;
