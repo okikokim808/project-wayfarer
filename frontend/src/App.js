@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
@@ -8,7 +8,6 @@ import Postmodal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
-
 import './App.css'
 import About from './About';
 class App extends Component {
@@ -27,10 +26,12 @@ class App extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
+  
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
+        redirect : <Redirect to="/Profile"></Redirect>
       })
     } else {
       this.setState({
@@ -74,8 +75,9 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
-  handleLogOut() {
+  handleLogOut(e) {
     this.setState({
+      [e.target.name]: '',
       username: '',
       email: '',
       password: '',
@@ -83,7 +85,7 @@ class App extends Component {
     })
     localStorage.clear()
   }
-
+  
   render() {
     return (
       <div className="App">
@@ -93,12 +95,15 @@ class App extends Component {
         handleSignIn = {this.handleSignIn} 
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
-        handleLogOut={this.handleLogOut} />
+        handleLogOut={this.handleLogOut}
+        handleRedirect = {this.state.redirect} />
+        {this.state.redirect}
         <Switch>
-          <Route exact path='/' component={ Postmodal }/>
+          <Route path='/Profile' component={Profile}/>
           <Route path='/Cities' component={ Citylistcontainer }/>
-          <Route path='/Profile' component={ Profile }/>
-        </Switch>
+          {/* <Route exact path='/' component={ Postmodal }/>  */}
+          <Route exact path='/' component={ SplashPage }/>
+       </Switch>
       </div>
     );
   }

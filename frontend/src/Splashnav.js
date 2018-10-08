@@ -14,10 +14,19 @@ class Splashnav extends Component {
             <ul className="navLinks">
                 <li><a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
+                    <SigninForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignIn={this.props.handleSignIn} 
+                    handleInput={this.props.handleInput}/>
+                    <SignupForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignUp={this.props.handleSignUp} 
+                    handleInput={this.props.handleInput}/>
             </ul>
     }else{
         authLinks =
             <ul className="navLinks">
+                <li><a href="#" data-toggle="modal" data-target="#modalPostForm">Post</a></li>
                 <li><a href="#" onClick={this.props.handleLogOut}>Log Out</a></li>
             </ul>
     }
@@ -37,10 +46,9 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignUp={this.props.handleSignUp} 
                     handleInput={this.props.handleInput}/>
-                    <a href="#" data-toggle="modal" data-target="#modalPostForm">Create Post</a>
-
+                    <Postmodal />
                 </nav>
-                <Postmodal />
+                
             </header>
             
         )
