@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { Redirect } from 'react-router'
+
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
-import Postmodal from './Postmodal'
+import PostModal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
@@ -19,7 +21,7 @@ class App extends Component {
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
@@ -53,7 +55,7 @@ class App extends Component {
           .then(response => {
               localStorage.token = response.data.token
               this.setState({
-                  isLoggedIn: true
+                  isLoggedIn: true,
               })
           })
           .catch(err => console.log(err))
@@ -79,12 +81,18 @@ class App extends Component {
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     })
+
     localStorage.clear()
   }
 
   render() {
+    const { isLoggedIn } = this.state;
+
+    if (isLoggedIn) {
+      return <Redirect to='/Profile'/>;
+    }
     return (
       <div className="App">
 
@@ -94,10 +102,12 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
+        <SplashPage />
         <Switch>
-          <Route exact path='/' component={ Postmodal }/>
           <Route path='/Cities' component={ Citylistcontainer }/>
           <Route path='/Profile' component={ Profile }/>
+          <Route exact path='/' component={ PostModal }/>
+
         </Switch>
       </div>
     );
