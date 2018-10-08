@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { Redirect } from 'react-router'
+
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
-import Postmodal from './Postmodal'
+import PostModal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
+
 import './App.css'
 import Footer from './Footer'
 
@@ -19,7 +22,7 @@ class App extends Component {
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     }
 
     this.handleLogOut = this.handleLogOut.bind(this)
@@ -27,7 +30,6 @@ class App extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
-  
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
@@ -56,7 +58,7 @@ class App extends Component {
           .then(response => {
               localStorage.token = response.data.token
               this.setState({
-                  isLoggedIn: true
+                  isLoggedIn: true,
               })
           })
           .catch(err => console.log(err))
@@ -77,18 +79,19 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
-  handleLogOut(e) {
+  handleLogOut() {
     this.setState({
-      [e.target.name]: '',
       username: '',
       email: '',
       password: '',
-      isLoggedIn: false
+      isLoggedIn: false,
     })
+
     localStorage.clear()
   }
-  
+
   render() {
+
     return (
       <div className="App">
 
@@ -97,12 +100,11 @@ class App extends Component {
         handleSignIn = {this.handleSignIn} 
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
-        handleLogOut={this.handleLogOut}
-        handleRedirect = {this.state.redirect} />
-        {this.state.redirect}
+        handleLogOut={this.handleLogOut} />
+        <SplashPage />
         <Switch>
-          <Route path='/Profile' component={Profile}/>
           <Route path='/Cities' component={ Citylistcontainer }/>
+
           {/* <Route exact path='/' component={ Postmodal }/>  */}
           <Route exact path='/' component={ SplashPage }/>
        </Switch>
