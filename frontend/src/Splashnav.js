@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css'
 import hetchy from './images/hetchy.jpg'
 import SigninForm from './SigninForm'
@@ -12,6 +13,7 @@ class Splashnav extends Component {
     if (!this.props.isSignedIn){
         authLinks = 
             <ul className="navLinks">
+                <li><Link to="cities">Cities</Link></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalLoginForm">Sign In</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalRegisterForm">Sign Up</a></li>
                     <SigninForm 
@@ -22,10 +24,12 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignUp={this.props.handleSignUp} 
                     handleInput={this.props.handleInput}/>
+                
             </ul>
     }else{
         authLinks =
             <ul className="navLinks">
+                <li><Link to="cities">Cities</Link></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalPostForm">Post</a></li>
                 <li><a href="#" onClick={this.props.handleLogOut}>Log Out</a></li>
             </ul>

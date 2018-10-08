@@ -100,12 +100,13 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
-        {/* <SplashPage /> */}
+        
         <Switch>
           <Route path='/Cities' component={ Citylistcontainer }/>
           <Route path='/Profile' component={ Profile }/>
           <Route exact path='/' component={ SplashPage }/>
         </Switch>
+        {this.state.redirect}
         <Footer />
       </div>
     );
