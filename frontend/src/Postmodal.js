@@ -9,7 +9,7 @@ class PostModal extends Component {
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-header text-center">
-                <h4 className="modal-title w-100 font-weight-bold">Sign up</h4>
+                <h4 className="modal-title w-100 font-weight-bold">Post</h4>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -24,7 +24,7 @@ class PostModal extends Component {
 
                 <div className="md-form mb-5">
                     
-                    <textarea type="text" name="email" id="orangeForm-email" className="form-control validate" onChange={this.props.handleInput}>Post Content</textarea>
+                    <textarea type="text" name="email" id="orangeForm-email" className="form-control validate" placeholder="Tell us what you think!" onChange={this.props.handleInput}></textarea>
                 </div>
 
 

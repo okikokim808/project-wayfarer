@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Redirect } from 'react-router'
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
@@ -10,10 +9,9 @@ import PostModal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
-
-import './App.css'
 import Footer from './Footer'
 
+import './App.css'
 class App extends Component {
   constructor () {
     super()
@@ -34,12 +32,12 @@ class App extends Component {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true,
-        redirect : <Redirect to="/Profile" />
+        redirect : <Redirect to="/Profile"></Redirect>
       })
     } else {
       this.setState({
         isLoggedIn: false,
-        redirect : <Redirect to="/"/>
+        redirect : <Redirect to="/"></Redirect>
       })
     }
   }
@@ -79,8 +77,9 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
-  handleLogOut() {
+  handleLogOut(e) {
     this.setState({
+      [e.target.name]: '',
       username: '',
       email: '',
       password: '',
@@ -104,11 +103,11 @@ class App extends Component {
         <SplashPage />
         <Switch>
           <Route path='/Cities' component={ Citylistcontainer }/>
+          <Route path='/Profile' component={ Profile }/>
+          <Route exact path='/' component={ PostModal }/>
 
-          {/* <Route exact path='/' component={ Postmodal }/>  */}
-          <Route exact path='/' component={ SplashPage }/>
-       </Switch>
-       <Footer />
+        </Switch>
+        <Footer />
       </div>
     );
   }
