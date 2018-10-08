@@ -7,16 +7,25 @@ class Citylistcontainer extends Component {
         this.state = {
             cities: cityArray
         }
+
     }
-    render() {
+    
+    render()
+    {
+        
         return(
+            
             <div className="cityList">
                 <h1>City List container</h1>
+                <h3></h3>
             </div>
         )
+
+        
     }
 
-
 }
+console.log(cityArray[0])
+
 
 export default Citylistcontainer;
