@@ -99,6 +99,7 @@ input {
 }
 .profile {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     
 }

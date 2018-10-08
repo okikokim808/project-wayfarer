@@ -4,10 +4,12 @@ import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
+import Postmodal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
 import './App.css'
+import About from './About';
 class App extends Component {
   constructor () {
     super()
@@ -87,6 +89,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
         <Splashnav 
         isSignedIn = {this.state.isLoggedIn} 
         handleSignIn = {this.handleSignIn} 
@@ -98,6 +101,7 @@ class App extends Component {
         <Switch>
           <Route path='/Profile' component={Profile}/>
           <Route path='/Cities' component={ Citylistcontainer }/>
+          {/* <Route exact path='/' component={ Postmodal }/>  */}
           <Route exact path='/' component={ SplashPage }/>
        </Switch>
       </div>

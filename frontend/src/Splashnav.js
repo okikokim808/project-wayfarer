@@ -3,6 +3,7 @@ import './App.css'
 import hetchy from './images/hetchy.jpg'
 import SigninForm from './SigninForm'
 import SignupForm from './SignupForm'
+import Postmodal from './Postmodal'
 
 class Splashnav extends Component {
     
@@ -25,6 +26,7 @@ class Splashnav extends Component {
     }else{
         authLinks =
             <ul className="navLinks">
+                <li><a href="#" data-toggle="modal" data-target="#modalPostForm">Post</a></li>
                 <li><a href="#" onClick={this.props.handleLogOut}>Log Out</a></li>
             </ul>
     }
@@ -36,8 +38,17 @@ class Splashnav extends Component {
                 </div>
                 <nav>
                     {authLinks}
-                    {this.props.handleRedirect}
+                    <SigninForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignIn={this.props.handleSignIn} 
+                    handleInput={this.props.handleInput}/>
+                    <SignupForm 
+                    isSignedIn={this.props.isSignedIn} 
+                    handleSignUp={this.props.handleSignUp} 
+                    handleInput={this.props.handleInput}/>
+                    <Postmodal />
                 </nav>
+                
             </header>
             
         )
