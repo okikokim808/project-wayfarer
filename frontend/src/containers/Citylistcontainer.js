@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // import cityArray from '../seed'
 import Cities from '../Cities'
+import City from '../City'
 
 class Citylistcontainer extends Component {
     constructor() {

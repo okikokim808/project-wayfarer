@@ -1,4 +1,7 @@
 import React from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import City from './City'
 import './App.css'
 
 
@@ -7,11 +10,7 @@ const cityArray = (props) => {
         <div>
             <p>* * * * *</p>
             <img src={props.city.images} alt={props.city.name}/>
-            <h2>{props.city.name}</h2>
-            <img 
-                src={props.city.images} 
-                alt={props.city.name}/>
-            <p>{props.city.summary}</p>
+            <h2><a href={<City />}>{props.city.name}</a></h2>
         </div>
     )
 }
