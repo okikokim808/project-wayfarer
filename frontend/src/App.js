@@ -32,12 +32,12 @@ class App extends Component {
     if (localStorage.token) {
       this.setState({
         isLoggedIn: true,
-        redirect : <Redirect to="/Profile" />
+        // redirect : <Redirect to="/Profile" />
       })
     } else {
       this.setState({
         isLoggedIn: false,
-        redirect : <Redirect to="/"/>
+        // redirect : <Redirect to="/"/>
       })
     }
   }
@@ -98,8 +98,9 @@ class App extends Component {
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut}
-        handleRedirect = {this.state.redirect} />
-        {this.state.redirect}
+        // handleRedirect = {this.state.redirect} 
+        />
+        {/* {this.state.redirect} */}
         <Switch>
           <Route path='/Profile' component={Profile}/>
           <Route path='/Cities' component={ Citylistcontainer }/>

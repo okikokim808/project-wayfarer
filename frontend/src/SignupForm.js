@@ -36,7 +36,8 @@ class SignupForm extends Component {
 
                     </div>
                     <div className="modal-footer d-flex justify-content-center">
-                        <Link to="/Profile" onClick={this.props.handleSignUp} data-dismiss="modal" aria-label="Close">Sign up</Link>
+                        <Link to="/Profile"><button onClick={this.props.handleSignUp} data-dismiss="modal" aria-label="Close">Sign up</button></Link>
+                        {/* <Link to="/Profile" onClick={this.props.handleSignUp} data-dismiss="modal" aria-label="Close">Sign up</Link> */}
                     </div>
                 </div>
             </div>
