@@ -9,7 +9,7 @@ const cityArray = (props) => {
             <img 
                 src={props.city.images} 
                 alt={props.city.name}/>
-            <h4>{props.city.summary}</h4>
+            <p>{props.city.summary}</p>
         </div>
     )
 }
