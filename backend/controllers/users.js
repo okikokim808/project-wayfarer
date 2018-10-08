@@ -112,10 +112,10 @@ router.get('/all/:id' , (req, res) => {
   });
 }); 
 
-router.get('/:email', (req, res) => {
-  let email = req.params.email
-  console.log("email: "+email)
-  User.findOne({ email: email })
+router.get('/:username', (req, res) => {
+  let username = req.params.username
+  console.log("username: "+username)
+  User.findOne({ username: username })
     .then(user => {
       console.log(user)
       res.send(user)
