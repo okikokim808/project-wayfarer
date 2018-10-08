@@ -4,11 +4,13 @@ import hetchy from './images/hetchy.jpg'
 
 class Profile extends Component {
     render() {
+        console.log(this.props)
         return (
             <div>
             <div className='profile'>
                 <img className='userProfileImage' src={hetchy} />
                 <div className='userInfo'>
+
                 <h2>Username:</h2>
                 <h2>here:{this.props.match.params.username}</h2>
                 <h3>Current City:</h3>

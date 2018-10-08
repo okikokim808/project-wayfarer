@@ -33,14 +33,9 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignIn={this.props.handleSignIn} 
                     handleInput={this.props.handleInput}/>
-                    <SignupForm 
-                    isSignedIn={this.props.isSignedIn} 
-                    handleSignUp={this.props.handleSignUp} 
-                    handleInput={this.props.handleInput}/>
-                    <a href="#" data-toggle="modal" data-target="#modalPostForm">Create Post</a>
+                    
 
                 </nav>
-                <Postmodal />
             </header>
             
         )

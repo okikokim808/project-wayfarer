@@ -95,7 +95,7 @@ class App extends Component {
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
         <Switch>
-          <Route exact path='/' component={ Postmodal }/>
+          <Route exact path='/' component={ SplashPage }/>
           <Route path='/Cities' component={ Citylistcontainer }/>
           <Route path='/Profile' component={ Profile }/>
         </Switch>
