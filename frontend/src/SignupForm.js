@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './App.css'
 
 class SignupForm extends Component {
@@ -35,7 +36,7 @@ class SignupForm extends Component {
 
                     </div>
                     <div className="modal-footer d-flex justify-content-center">
-                        <button className="btn btn-deep-orange" onClick={this.props.handleSignUp}>Sign up</button>
+                        <Link to="/Profile" onClick={this.props.handleSignUp} data-dismiss="modal" aria-label="Close">Sign up</Link>
                     </div>
                 </div>
             </div>

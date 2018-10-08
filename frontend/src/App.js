@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Switch, Route } from 'react-router-dom';
 import { Redirect } from 'react-router'
 
+=======
+import { Switch, Route, Redirect } from 'react-router-dom';
+>>>>>>> e0db6d8e725df22706ef0a0e28d36dc88cfd84a6
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
 // import Loggedinnav from './Loggedinnav'
@@ -10,7 +14,6 @@ import PostModal from './Postmodal'
 import './App.css';
 import axios from 'axios'
 import Profile from './Profile'
-
 import './App.css'
 import About from './About';
 class App extends Component {
@@ -29,10 +32,12 @@ class App extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
   }
+  
   componentDidMount () {
     if (localStorage.token) {
       this.setState({
-        isLoggedIn: true
+        isLoggedIn: true,
+        redirect : <Redirect to="/Profile"></Redirect>
       })
     } else {
       this.setState({
@@ -76,8 +81,9 @@ class App extends Component {
         .catch(err => console.log(err))
   }
 
-  handleLogOut() {
+  handleLogOut(e) {
     this.setState({
+      [e.target.name]: '',
       username: '',
       email: '',
       password: '',
@@ -86,7 +92,7 @@ class App extends Component {
 
     localStorage.clear()
   }
-
+  
   render() {
     const { isLoggedIn } = this.state;
 
@@ -101,6 +107,7 @@ class App extends Component {
         handleSignIn = {this.handleSignIn} 
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
+<<<<<<< HEAD
         handleLogOut={this.handleLogOut} />
         <SplashPage />
         <Switch>
@@ -109,6 +116,17 @@ class App extends Component {
           <Route exact path='/' component={ PostModal }/>
 
         </Switch>
+=======
+        handleLogOut={this.handleLogOut}
+        handleRedirect = {this.state.redirect} />
+        {this.state.redirect}
+        <Switch>
+          <Route path='/Profile' component={Profile}/>
+          <Route path='/Cities' component={ Citylistcontainer }/>
+          {/* <Route exact path='/' component={ Postmodal }/>  */}
+          <Route exact path='/' component={ SplashPage }/>
+       </Switch>
+>>>>>>> e0db6d8e725df22706ef0a0e28d36dc88cfd84a6
       </div>
     );
   }
