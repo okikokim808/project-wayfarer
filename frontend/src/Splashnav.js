@@ -3,6 +3,7 @@ import './App.css'
 import hetchy from './images/hetchy.jpg'
 import SigninForm from './SigninForm'
 import SignupForm from './SignupForm'
+import Postmodal from './Postmodal'
 
 class Splashnav extends Component {
     
@@ -36,7 +37,10 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignUp={this.props.handleSignUp} 
                     handleInput={this.props.handleInput}/>
+                    <a href="#" data-toggle="modal" data-target="#modalPostForm">Create Post</a>
+
                 </nav>
+                <Postmodal />
             </header>
             
         )
