@@ -10,6 +10,7 @@ class Profile extends Component {
                 <img className='userProfileImage' src={hetchy} />
                 <div className='userInfo'>
                 <h2>Username:</h2>
+                <h2>here:{this.props.match.params.username}</h2>
                 <h3>Current City:</h3>
                 <h4>Joined: </h4>
                 </div>
