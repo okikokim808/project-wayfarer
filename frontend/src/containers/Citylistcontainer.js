@@ -76,12 +76,10 @@ class Citylistcontainer extends Component {
             cityArray = this.state.cities.map((city) => {
                 return (
                     <section>
-                        <div>
-                            <Cities
+                        <Cities
                                 city={city}
                                 key={city.id}
-                            />
-                        </div>
+                        />
                     </section>
                 )
             })
