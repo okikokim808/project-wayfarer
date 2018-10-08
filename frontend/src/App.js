@@ -41,7 +41,8 @@ class App extends Component {
       })
     } else {
       this.setState({
-        isLoggedIn: false
+        isLoggedIn: false,
+        redirect : <Redirect to="/"></Redirect>
       })
     }
   }
