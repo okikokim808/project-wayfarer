@@ -3,7 +3,6 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import SplashPage from './containers/SplashPage'
 import Splashnav from './Splashnav'
-// import Loggedinnav from './Loggedinnav'
 import Citylistcontainer from './containers/Citylistcontainer'
 import PostModal from './Postmodal'
 import './App.css';
@@ -50,7 +49,7 @@ class App extends Component {
       [e.target.name]: e.target.value
     })
     console.log([e.target.name] + " : " + e.target.value)
-    // console.log(this.state.author)
+
   }
   handleSignUp (e) {
     e.preventDefault()
