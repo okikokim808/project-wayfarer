@@ -1,1 +1,1 @@
-web: react frontend/src/index.js
+web: react index.js
