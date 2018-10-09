@@ -5,7 +5,8 @@ import Modal from 'react-modal';
 Modal.setAppElement('#root')
 class PostModal extends Component {
     render () {
-    return (<div className="modal fade" id="modalPostForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    return (
+    <div className="modal fade" id="modalPostForm" tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div className="modal-dialog" role="document">
         <div className="modal-content">
             <div className="modal-header text-center">
@@ -15,23 +16,19 @@ class PostModal extends Component {
                 </button>
             </div>
             <div className="modal-body mx-3">
-
                 <div className="md-form mb-5">
-                    
-                    <input type="text" name="username" id="orangeForm-name" className="form-control validate" onChange={this.props.handleInput}/>
-                    <label data-error="wrong" data-success="right" htmlFor="orangeForm-name">Title</label>
+                    <i className="fa fa-user prefix grey-text"></i>
+                    <input type="text" name="title" className="form-control validate" onChange={this.props.handleInput} />
+                    <label data-error="wrong" data-success="right" htmlFor="defaultForm-name">Title</label>
                 </div>
-
                 <div className="md-form mb-5">
-                    
-                    <textarea type="text" name="email" id="orangeForm-email" className="form-control validate" placeholder="Tell us what you think!" onChange={this.props.handleInput}></textarea>
+                    <i className="fa fa-user prefix grey-text"></i>
+                    <input type="text" name="content" className="form-control validate" onChange={this.props.handleInput} />
+                    <label data-error="wrong" data-success="right" htmlFor="defaultForm-name">Content</label>
                 </div>
-
-
-
             </div>
             <div className="modal-footer d-flex justify-content-center">
-                <button className="btn btn-deep-orange" onClick={this.props.handleSignUp}>Post</button>
+                <button onClick={this.props.handlePost} data-dismiss="modal" aria-label="Close" >Post</button>
             </div>
         </div>
     </div>

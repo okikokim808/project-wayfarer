@@ -17,6 +17,8 @@ class App extends Component {
     super()
 
     this.state = {
+      author: '',
+      content: '',
       username: '',
       email: '',
       password: '',
@@ -27,6 +29,7 @@ class App extends Component {
     this.handleInput = this.handleInput.bind(this)
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSignUp = this.handleSignUp.bind(this)
+    this.handlePost = this.handlePost.bind(this)
   }
   componentDidMount () {
     if (localStorage.token) {
@@ -45,6 +48,8 @@ class App extends Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    console.log([e.target.name] + " : " + e.target.value)
+    // console.log(this.state.author)
   }
   handleSignUp (e) {
     e.preventDefault()
@@ -61,7 +66,6 @@ class App extends Component {
           })
           .catch(err => console.log(err))
   }
-
   handleSignIn (e) {
     e.preventDefault()
     axios.post('http://localhost:3001/users/login', {
@@ -76,7 +80,15 @@ class App extends Component {
         })
         .catch(err => console.log(err))
   }
-
+  handlePost(e){
+    e.preventDefault()
+    axios.post('http://localhost:3001/posts/create', {
+      author: this.state.username,
+      title: this.state.title,
+      content: this.state.content
+    })
+    .catch(err => console.log(err))
+  }
   handleLogOut(e) {
     this.setState({
       [e.target.name]: '',
@@ -88,19 +100,19 @@ class App extends Component {
 
     localStorage.clear()
   }
-
+  
   render() {
 
     return (
       <div className="App">
 
         <Splashnav 
+        handlePost={this.handlePost}
         isSignedIn = {this.state.isLoggedIn} 
         handleSignIn = {this.handleSignIn} 
         handleSignUp={this.handleSignUp} 
         handleInput={this.handleInput}
         handleLogOut={this.handleLogOut} />
-        
         <Switch>
           <Route path='/Cities' component={ Citylistcontainer }/>
           <Route path='/Profile' component={ Profile }/>

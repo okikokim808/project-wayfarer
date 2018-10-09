@@ -4,7 +4,7 @@ const mongoose = require('../db/connection')
 
 const PostSchema = new Schema({
     author: {
-        type: Schema.Types.ObjectId,
+        type: String,
         ref: 'User'
     },
     title: {
