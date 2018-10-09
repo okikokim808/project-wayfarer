@@ -95,6 +95,7 @@ input {
     height: 100px;
     margin-right: 4em;
 }
+
 .profile {
     display: flex;
     flex-direction: column;
@@ -117,5 +118,8 @@ input {
 .splashTitle {
     text-decoration: none;
     color: #ffffff;
+}
 
+.cityImage {
+    width: 75vw;
 }
