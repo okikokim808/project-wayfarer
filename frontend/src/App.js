@@ -120,6 +120,7 @@ class App extends Component {
           <Route exact path='/' component={ SplashPage }/>
         </Switch>
         {this.state.redirect}
+        {this.props.author}
         <Footer />
       </div>
     );
