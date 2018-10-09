@@ -19,7 +19,7 @@ class App extends Component {
     this.state = {
       author: '',
       content: '',
-      username: '',
+      username: 'Anon',
       email: '',
       password: '',
       isLoggedIn: false,
