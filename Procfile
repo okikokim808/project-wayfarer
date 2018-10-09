@@ -1,1 +1,1 @@
-web: react index.js
+web: node index.js
