@@ -4,7 +4,7 @@ import './App.css'
 class Footer extends Component {
   render() {
     return (
-        <footer class = "footer">
+        <footer className = "footer">
             <p>2018 ALF All Rights Reserved</p>
         </footer>
     );

@@ -24,7 +24,7 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignUp={this.props.handleSignUp} 
                     handleInput={this.props.handleInput}/>
-                
+                    
             </ul>
     }else{
         authLinks =
@@ -32,6 +32,9 @@ class Splashnav extends Component {
                 <li><Link to="cities">Cities</Link></li>
                 <li><a href="#" data-toggle="modal" data-target="#modalPostForm">Post</a></li>
                 <li><a href="#" onClick={this.props.handleLogOut}>Log Out</a></li>
+                    <Postmodal 
+                    handlePost={this.props.handlePost}
+                    handleInput={this.props.handleInput}/>
             </ul>
     }
         return (
@@ -50,7 +53,9 @@ class Splashnav extends Component {
                     isSignedIn={this.props.isSignedIn} 
                     handleSignUp={this.props.handleSignUp} 
                     handleInput={this.props.handleInput}/>
-                    <Postmodal />
+                    <Postmodal 
+                    handlePost={this.props.handlePost}
+                    handleInput={this.props.handleInput}/>
                 </nav>
                 
             </header>
