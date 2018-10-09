@@ -5,9 +5,9 @@ const passport = require('../config/passport')
 const config = require('../config/config')
 const bcrypt = require('bcrypt'); 
 const bodyParser = require('body-parser')
-
 const mongoose = require('../models/User')
 const User = mongoose.model('User')
+const key = process.env.SECRET_KEY
 
 router.post('/signup', (req, res) => {
     User.find({username: req.body.username})
@@ -32,7 +32,7 @@ router.post('/signup', (req, res) => {
                 if(err){console.log(err);}
                 const token = jwt.sign(
                     {users},
-                    'icup',
+                    key,
                     {
                         expiresIn: '5h'
                     },
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
                 email: users[0].email,
                 _id: users[0]._id
               }, 
-              "icup",
+              "key",
               {
                 expiresIn: "5h"
               },
