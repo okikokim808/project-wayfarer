@@ -52,7 +52,7 @@ li {
     margin-bottom:0;
     margin-right:10px;
     padding-left: 0;
-    width: 200px;
+    width: 125px;
 }
 .carousel-item img{
     height: auto;
@@ -87,9 +87,7 @@ input {
 .cityList{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     text-align: center;
-    /* height: 50vh; */
     /* margin-top: 100px; */
 }
 .userProfileImage {
@@ -101,11 +99,9 @@ input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 74.5vh;
+    
 }
-.cityList{
-    height: auto;
-}
+
 .footer{
     display: flex;
     align-items: center;
@@ -116,4 +112,10 @@ input {
 }
 .footer p{
     color: white;
+}
+
+.splashTitle {
+    text-decoration: none;
+    color: #ffffff;
+
 }
