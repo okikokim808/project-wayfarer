@@ -41,7 +41,7 @@ class Splashnav extends Component {
             <header className='splashHeader'>
                 <div className='imageAndLogo'>
                 <img className='navLogo' src= {hetchy} />
-                <h2 className='splashTitle'><Link to="/profile">Wayfarer</Link></h2>
+                <h2 className='splashTitle'><Link to="/">Wayfarer</Link></h2>
                 <h5>{this.props.username}</h5>
                 </div>
                 <nav>
