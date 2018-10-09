@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import cityArray from './Cities'
 import './App.css'
 
 class City extends Component {
@@ -7,9 +6,9 @@ class City extends Component {
         return (
             <div>
             <p>hi</p>
-            {/* <img src={props.city.images} alt={props.city.name}/>
-            <h2><a href="#">{props.city.name}</a></h2>
-            <p>{props.city.summary}</p> */}
+            <img src={this.props.city.images} alt={this.props.city.name}/>
+            <h2>{this.props.city.name}</h2>
+            <p>{this.props.city.summary}</p>
             </div>
         )
     }

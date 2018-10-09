@@ -9,8 +9,9 @@ const cityArray = (props) => {
     return(
         <div>
             <p>* * * * *</p>
-            <img src={props.city.images} alt={props.city.name}/>
+            <img src={props.city.image} alt={props.city.name}/>
             <h2><a href={<City />}>{props.city.name}</a></h2>
+            <p>{props.city.summary}</p>
         </div>
     )
 }
